@@ -1,82 +1,94 @@
 <template>
-    <div>
-        <Card style="margin-bottom:20px;text-align:left;">
-            <Row>
-                <Col span="4">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label  class="label-width--samll">用户ID：</label>
-                        <Input placeholder="Enter name" style="width: auto" v-model="id" />
-                    </div>
-                </Col>
-                <Col span="4">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label class="label-width--samll">姓名：</label>
-                        <Input placeholder="Enter name" style="width: auto"  v-model="name" />
-                    </div>
-                </Col>
-                <Col span="4">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label class="label-width--samll">手机号码：</label>
-                        <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
-                    </div>
-                </Col>
-                <Col span="5">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label class="label-width--samll">身份证号：</label>
-                        <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
-                    </div>
-                </Col>
-                <Col span="6">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label class="label-width--middle">是否发起过授信：</label>
-                        <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
-                    </div>
-                </Col>
-            </Row>
-            <Row>
-                <Col span="4">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label class="label-width--samll">成功授信：</label>
-                        <Input placeholder="Enter name" style="width: auto"  v-model="idCard" />
-                    </div>
-                </Col>
-                <Col span="4">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                         <label  class="label-width--middle">是否实名：</label>
-                        <Select v-model="trust" style="width:auto">
-                            <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                        </Select>
-                    </div>
-                </Col>
-                <Col span="4">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;display:flex;">
-                         <label  class="label-width--middle">来源：</label>
-                        <Select v-model="trust" style="width:auto">
-                            <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                        </Select>
-                    </div>
-                </Col>
-                <Col span="5">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <label  class="label-width--middle">注册时间：</label>
-                        <div style="display:inline-block;">
-                            <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
-                             -
-                            <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
+    <Card :bordered="false" style="min-width:1300px;">
+        <div slot="title" style="text-align:left;p">
+            <span>
+                <Icon type="ios-film-outline"></Icon>
+                添加黑名单
+            </span>
+            <span style="margin-left:20px;">
+                <Icon type="ios-film-outline"></Icon>
+                刷新
+            </span>
+        </div>
+        <div>
+            <Card style="margin-bottom:20px;text-align:left;">
+                <Row>
+                    <Col span="4">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label  class="label-width--samll">用户ID：</label>
+                            <Input placeholder="Enter name" style="width: auto" v-model="id" />
                         </div>
-                    </div>
-                </Col>
-                <Col span="6">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;">
-                        <i-button type="primary" style="margin-right:20px">查询</i-button>
-                        <i-button type="primary">清空</i-button>
-                    </div>
-                </Col>
-            </Row>
-         </Card>
-        <Table :columns="headers" :data="bodys"></Table>
-        <Page :total="100" show-elevator style="margin-top:20px;"></Page>
-    </div>
+                    </Col>
+                    <Col span="4">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label class="label-width--samll">姓名：</label>
+                            <Input placeholder="Enter name" style="width: auto"  v-model="name" />
+                        </div>
+                    </Col>
+                    <Col span="4">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label class="label-width--samll">手机号码：</label>
+                            <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
+                        </div>
+                    </Col>
+                    <Col span="6">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label class="label-width--samll">身份证号：</label>
+                            <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
+                        </div>
+                    </Col>
+                    <Col span="6">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label class="label-width--middle">是否发起过授信：</label>
+                            <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span="4">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label class="label-width--samll">成功授信：</label>
+                            <Input placeholder="Enter name" style="width: auto"  v-model="idCard" />
+                        </div>
+                    </Col>
+                    <Col span="4">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                             <label  class="label-width--middle">是否实名：</label>
+                            <Select v-model="trust" style="width:auto">
+                                <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                            </Select>
+                        </div>
+                    </Col>
+                    <Col span="4">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;display:flex;">
+                             <label  class="label-width--middle">来源：</label>
+                            <Select v-model="trust" style="width:auto">
+                                <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                            </Select>
+                        </div>
+                    </Col>
+                    <Col span="6">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <label  class="label-width--small">注册时间：</label>
+                            <div style="display:inline-block;">
+                                <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
+                                 -
+                                <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col span="6">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
+                            <i-button type="primary" style="margin-right:20px">查询</i-button>
+                            <i-button type="primary">清空</i-button>
+                        </div>
+                    </Col>
+                </Row>
+             </Card>
+            <Table :columns="headers" :data="bodys"></Table>
+            <Page :total="100" show-elevator style="margin-top:20px;"></Page>
+        </div>
+    </Card>
 </template>
 <script>
 export default {
@@ -103,11 +115,6 @@ export default {
     },
     mounted(){
         this.headers = [
-           {
-               type: 'selection',
-               width: 60,
-               align: 'center'
-           },
           {
               title: '用户Id',
               key: 'id'
@@ -209,10 +216,10 @@ export default {
 <style scoped>
     .label-width--samll{
         display: inline-block;
-        width: 70px;
+        width: 120px;
     }
     .label-width--middle{
         display: inline-block;
-        width: 112px;
+        width: 117px;
     }
 </style>
