@@ -1,10 +1,6 @@
 <template>
     <Card :bordered="false" style="min-width:1300px;">
         <div slot="title" style="text-align:left;">
-            <span>
-                <Icon type="ios-person-add" size="20"></Icon>
-                添加黑名单
-            </span>
             <span style="margin-left:20px;">
                 <Icon type="ios-refresh" size="20"></Icon>
                 刷新
@@ -39,36 +35,6 @@
                     </Col>
                     <Col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label class="label-width--middle">是否发起过授信：</label>
-                            <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col span="4">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label class="label-width--samll">成功授信：</label>
-                            <Input placeholder="Enter name" style="width: auto"  v-model="idCard" />
-                        </div>
-                    </Col>
-                    <Col span="4">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                             <label  class="label-width--middle">是否实名：</label>
-                            <Select v-model="trust" style="width:auto">
-                                <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                            </Select>
-                        </div>
-                    </Col>
-                    <Col span="4">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;display:flex;">
-                             <label  class="label-width--middle">来源：</label>
-                            <Select v-model="trust" style="width:auto">
-                                <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
-                            </Select>
-                        </div>
-                    </Col>
-                    <Col span="6">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">注册时间：</label>
                             <div style="display:inline-block;">
                                 <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
@@ -77,6 +43,8 @@
                             </div>
                         </div>
                     </Col>
+                </Row>
+                <Row>
                     <Col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <i-button type="primary" style="margin-right:20px">查询</i-button>
@@ -95,16 +63,6 @@ export default {
   data (){
         return {
             self: this,
-            trusts: [{
-                label: '全部',
-                value: '0'
-            }, {
-               label: '是',
-               value: '1'
-            }, {
-               label: '否',
-               value: '2'
-            }],
             headers: [],
             bodys: [],
             id: '',
@@ -137,6 +95,10 @@ export default {
               key: 'name'
           },
           {
+            title: '芝麻分',
+            key: 'zhimaMark'
+        },
+          {
             title: '身份证号',
             key: 'idCard'
           },
@@ -148,71 +110,29 @@ export default {
             title: '注册时间',
             key: 'registerTime'
         },
-        {
-          title: '最后一次访问时间',
-          key: 'lastTime'
-        },
        {
-            title: '授信状态',
-            key: 'creditStatus'
+            title: '是否授信成功',
+            key: 'isCreditSuccess'
         },
         {
-          title: '授信总额',
+          title: '授信总额度',
           key: 'creditAmount'
         },
         {
-            title: '手机运营商验证',
-            key: 'phoneOperatorVeritical'
+          title: '剩余授信额度',
+          key: 'creditAmount'
         },
         {
             title: '最后授信时间',
             key: 'lastCreditTime'
         },
         {
+            title: '最后一次访问时间',
+            key: 'lastViewTime'
+        },
+        {
             title: '来源',
             key: 'source'
-        },
-        {
-            title: '身份证正面照片',
-            key: 'icardPositivePhone'
-        },
-        {
-           title: '身份证背面照片',
-           key: 'icardReversePhone'
-        },
-        {
-            title: '操作',
-            key: 'action',
-            width: 200,
-            render: (h, params) => {
-                return h('div', [
-                    h('Button', {
-                        props: {
-                            type: 'primary',
-                            size: 'small'
-                        },
-                        style: {
-                            marginRight: '10px'
-                        },
-                        on: {
-                            click: () => {
-                                this.show(params.index)
-                            }
-                        }
-                    }, '添加黑名单'),
-                    h('Button', {
-                        props: {
-                            type: 'error',
-                            size: 'small'
-                        },
-                        on: {
-                            click: () => {
-                                this.remove(params.index)
-                            }
-                        }
-                    }, '资料')
-                ]);
-            }
         }];
 
          this.bodys =  [

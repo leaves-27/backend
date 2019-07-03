@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import App from './App.vue';
-import routes from './routes';
+import routes from './routes/index';
 
 Vue.use(VueRouter);
 Vue.use(iView);
