@@ -51,7 +51,7 @@
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px'}">
                     <Breadcrumbs :breadcrumbs="breadcrumbs"/>
-                    <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+                    <Content :style="{padding: '0px', minHeight: '280px', background: 'transparent'}">
                         <router-view></router-view>
                     </Content>
                 </Layout>

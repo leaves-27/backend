@@ -2,11 +2,11 @@
     <Card :bordered="false" style="min-width:1300px;">
         <div slot="title" style="text-align:left;p">
             <span>
-                <Icon type="ios-film-outline"></Icon>
+                <Icon type="ios-person-add" size="20"></Icon>
                 添加黑名单
             </span>
             <span style="margin-left:20px;">
-                <Icon type="ios-film-outline"></Icon>
+                <Icon type="ios-refresh" size="20"></Icon>
                 刷新
             </span>
         </div>
