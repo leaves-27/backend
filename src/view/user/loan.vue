@@ -95,7 +95,7 @@ export default {
               key: 'name'
           },
           {
-            title: '芝麻分',
+            title: '芝麻信用分',
             key: 'zhimaMark'
         },
           {
@@ -111,7 +111,7 @@ export default {
             key: 'registerTime'
         },
        {
-            title: '是否授信成功',
+            title: '是否成功授信',
             key: 'isCreditSuccess'
         },
         {

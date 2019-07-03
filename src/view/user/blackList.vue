@@ -35,7 +35,7 @@
                     </Col>
                     <Col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small">注册时间：</label>
+                            <label  class="label-width--small">进入黑名单时间：</label>
                             <div style="display:inline-block;">
                                 <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
                                  -
@@ -83,9 +83,13 @@ export default {
     mounted(){
         this.headers = [
           {
-              title: '用户Id',
+              title: '借款用户Id',
               key: 'id',
           },
+          {
+                title: '类型',
+                key: 'type',
+           },
           {
               title: '手机号码',
               key: 'phone',
@@ -95,10 +99,6 @@ export default {
               key: 'name'
           },
           {
-            title: '芝麻分',
-            key: 'zhimaMark'
-        },
-          {
             title: '身份证号',
             key: 'idCard'
           },
@@ -107,32 +107,24 @@ export default {
               key: 'sex'
           },
           {
-            title: '注册时间',
-            key: 'registerTime'
+            title: '进入黑名单时间',
+            key: 'blackListTime'
         },
        {
-            title: '是否授信成功',
-            key: 'isCreditSuccess'
-        },
-        {
-          title: '授信总额度',
-          key: 'creditAmount'
-        },
-        {
-          title: '剩余授信额度',
-          key: 'creditAmount'
-        },
-        {
-            title: '最后授信时间',
-            key: 'lastCreditTime'
+            title: '过期时间',
+            key: 'overTime'
         },
         {
             title: '最后一次访问时间',
             key: 'lastViewTime'
         },
         {
-            title: '来源',
-            key: 'source'
+            title: '创建人',
+            key: 'creator'
+        },
+        {
+            title: '说明',
+            key: 'instructions'
         }];
 
          this.bodys =  [

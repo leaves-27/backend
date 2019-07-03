@@ -35,7 +35,7 @@
                     </Col>
                     <Col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small">注册时间：</label>
+                            <label  class="label-width--small">进入白名单时间：</label>
                             <div style="display:inline-block;">
                                 <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
                                  -
@@ -83,7 +83,7 @@ export default {
     mounted(){
         this.headers = [
           {
-              title: '用户Id',
+              title: '借款用户Id',
               key: 'id',
           },
           {
@@ -95,44 +95,36 @@ export default {
               key: 'name'
           },
           {
-            title: '芝麻分',
-            key: 'zhimaMark'
-        },
-          {
             title: '身份证号',
             key: 'idCard'
           },
          {
-              title: '性别',
-              key: 'sex'
+              title: '状态',
+              key: 'status'
           },
           {
-            title: '注册时间',
-            key: 'registerTime'
-        },
+            title: '进入白名单时间',
+            key: 'whiteListTime'
+          },
        {
-            title: '是否授信成功',
-            key: 'isCreditSuccess'
+            title: '过期时间',
+            key: 'overTime'
         },
         {
-          title: '授信总额度',
-          key: 'creditAmount'
+          title: '创建人',
+          key: 'creator'
         },
         {
-          title: '剩余授信额度',
-          key: 'creditAmount'
-        },
-        {
-            title: '最后授信时间',
-            key: 'lastCreditTime'
-        },
-        {
-            title: '最后一次访问时间',
-            key: 'lastViewTime'
+          title: '说明',
+          key: 'instructions'
         },
         {
             title: '来源',
             key: 'source'
+        },
+        {
+            title: '金额',
+            key: 'amount'
         }];
 
          this.bodys =  [
