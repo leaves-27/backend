@@ -9,9 +9,9 @@
         <div>
             <Card style="margin-bottom:20px;text-align:left;">
                 <Row>
-                    <Col span="4">
+                    <Col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--samll">账单号：</label>
+                            <label  class="label-width--samll">放款订单号：</label>
                             <Input placeholder="Enter name" style="width: auto" v-model="id" />
                         </div>
                     </Col>
@@ -38,13 +38,14 @@
                             <label class="label-width--middle">放款状态：</label>
                             <Select v-model="trust" style="width:auto">
                                 <Option
-                                    v-for="item in trusts"
-                                    :value="item.value"
-                                    :key="item.value">{{ item.label }}</Option>
+                                        v-for="item in trusts"
+                                        :value="item.value"
+                                        :key="item.value">{{ item.label }}
+                                </Option>
                             </Select>
                         </div>
                     </Col>
-                    <Col span="4">
+                    <Col span="3">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">来源：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="idCard" />
@@ -52,29 +53,21 @@
                     </Col>
                 </Row>
                 <Row>
-                    <Col span="7">
+                    <Col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small">创建订单时间：</label>
-                            <div style="display:inline-block;">
-                                <Date-picker
-                                        type="date"
-                                        placement="bottom-end"
-                                        placeholder="选择日期"
-                                        style="width: 80px;">
-                                </Date-picker>
-                                -
-                                <Date-picker
-                                        type="date"
-                                        placement="bottom-end"
-                                        placeholder="选择日期"
-                                        style="width: 80px;">
-                                </Date-picker>
-                            </div>
+                            <label class="label-width--middle">放款通道：</label>
+                            <Select v-model="trust">
+                                <Option
+                                        v-for="item in trusts"
+                                        :value="item.value"
+                                        :key="item.value">{{ item.label }}
+                                </Option>
+                            </Select>
                         </div>
                     </Col>
-                    <Col span="7">
+                    <Col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small">实际还款日期：</label>
+                            <label  class="label-width--small">申请时间：</label>
                             <div style="display:inline-block;">
                                 <Date-picker
                                         type="date"
@@ -94,81 +87,26 @@
                     </Col>
                     <Col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small">逾期天数：</label>
+                            <label  class="label-width--small">放款时间：</label>
                             <div style="display:inline-block;">
-                                <Input placeholder="Enter name" style="width:80px"  v-model="start" />
+                                <Date-picker
+                                        type="date"
+                                        placement="bottom-end"
+                                        placeholder="选择日期"
+                                        style="width: 80px;">
+                                </Date-picker>
                                 -
-                                <Input placeholder="Enter name" style="width: 80px"  v-model="end" />
+                                <Date-picker
+                                        type="date"
+                                        placement="bottom-end"
+                                        placeholder="选择日期"
+                                        style="width: 80px;">
+                                </Date-picker>
                             </div>
                         </div>
                     </Col>
-                    <Col span="4">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label class="label-width--middle">付款方式：</label>
-                            <Select v-model="trust" style="width:auto">
-                                <Option
-                                        v-for="item in trusts"
-                                        :value="item.value"
-                                        :key="item.value">{{ item.label }}</Option>
-                            </Select>
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
 
-                    <Col span="7">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small">应还日期：</label>
-                            <div style="display:inline-block;">
-                                <Date-picker
-                                        type="date"
-                                        placement="bottom-end"
-                                        placeholder="选择日期"
-                                        style="width: 80px;">
-                                </Date-picker>
-                                -
-                                <Date-picker
-                                        type="date"
-                                        placement="bottom-end"
-                                        placeholder="选择日期"
-                                        style="width: 80px;">
-                                </Date-picker>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col span="4">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label  class="label-width--small" style="width:100px">催收员:</label>
-                            <div style="display:inline-block;">
-                                <Input
-                                    placeholder="Enter name"
-                                    style="width: auto"  v-model="end" />
-                            </div>
-                        </div>
-                    </Col>
                     <Col span="3">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label class="label-width--middle">复借：</label>
-                            <Select v-model="trust" style="width:auto">
-                                <Option
-                                        v-for="item in trusts"
-                                        :value="item.value"
-                                        :key="item.value">{{ item.label }}</Option>
-                            </Select>
-                        </div>
-                    </Col>
-                    <Col span="4">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
-                            <label class="label-width--middle">是否手动补账：</label>
-                            <Select v-model="trust" style="width:auto">
-                                <Option
-                                        v-for="item in trusts"
-                                        :value="item.value"
-                                        :key="item.value">{{ item.label }}</Option>
-                            </Select>
-                        </div>
-                    </Col>
-                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <i-button type="primary" style="margin-right:20px">查询</i-button>
                             <i-button type="primary">清空</i-button>
@@ -201,28 +139,24 @@
 				}],
 				headers: [
 					{
-						title: '账单号',
-						key: 'billId',
+						title: '放款订单编号',
+						key: 'loanOrderId',
 					},
 					{
-						title: '是否复借',
-						key: 'isContinueBorrow',
+						title: '放款状态',
+						key: 'loanStatus',
 					},
 					{
-						title: '账单状态',
-						key: 'billStatus'
+						title: '借款订单号',
+						key: 'loanOrderId'
 					},
 					{
 						title: '用户ID',
-						key: 'userId'
+						key: 'id'
 					},
 					{
 						title: '姓名',
 						key: 'name'
-					},
-					{
-						title: '芝麻信用分',
-						key: 'ZiMaTtrustMark'
 					},
 					{
 						title: '手机号码',
@@ -233,44 +167,36 @@
 						key: 'idCard'
 					},
 					{
-						title: '逾期天数',
-						key: 'overdueDays'
+						title: '放款银行卡号',
+						key: 'loanBankCardNo'
 					},
 					{
-						title: '合同金额',
-						key: 'contractAmount'
+						title: '放款银行',
+						key: 'loanBank'
 					},
 					{
-						title: '应还金额',
-						key: 'shouldPaymentAmount'
+						title: '放款本金',
+						key: 'loanCapital'
 					},
 					{
-						title: '实还金额',
-						key: 'realPaymentAmount'
+						title: '放款金额',
+						key: 'loanAmount'
 					},
 					{
-						title: '放款日',
-						key: 'loanDate'
+						title: '申请时间',
+						key: 'applyTime'
 					},
 					{
-						title: '实际还款日',
-						key: 'realPaymentDate'
+						title: '放款时间',
+						key: 'loanTime'
+					},
+					{
+						title: '修改时间',
+						key: 'modifyTime'
 					},
                     {
-                        title: '订单创建时间',
-                        key: 'orderCreateTime'
-                    },
-                    {
-                        title: '更新时间',
-                        key: 'updateTime'
-                    },
-                    {
-                        title: '催收员',
-                        key: 'collector'
-                    },
-                    {
-                        title: '付款方式',
-                        key: 'paymentWay'
+                        title: '放款通道',
+                        key: 'loanChannel'
                     },
                     {
                         title: '来源',
@@ -295,38 +221,8 @@
 				}
 				return '';
 			},
-			render(h, params){
-				return h('div', [
-					h('Button', {
-						props: {
-							type: 'primary',
-							size: 'small'
-						},
-						style: {
-							marginRight: '10px'
-						},
-						on: {
-							click: () => {
-								// this.show(params.index)
-							}
-						}
-					}, '添加黑名单'),
-					h('Button', {
-						props: {
-							type: 'error',
-							size: 'small'
-						},
-						on: {
-							click: () => {
-								// this.remove(params.index)
-							}
-						}
-					}, '资料')
-				]);
-			}
 		},
-		mounted(){
-
+		mounted() {
 			// axios({
 			//     url: 'http://admin.51laiyun.com/debtorUser/list',
 			//     method: 'post',

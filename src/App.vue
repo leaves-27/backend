@@ -48,14 +48,6 @@
                     id: '1-2',
                     name: '借款用户',
                     path: '/user/loan'
-                }, {
-                    id: '1-3',
-                    name: '黑灰名单',
-                    path: '/user/blackList'
-                }, {
-                    id: '1-4',
-                    name: '白名单',
-                    path: '/user/whiteList'
                 }],
              },{
                 id: '2',
@@ -74,7 +66,15 @@
                 id: '3',
                 name: '财务管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '3-1',
+                    name: '放款订单',
+                    path: '/finance/loanOrder'
+                }, {
+                    id: '3-2',
+                    name: '还款订单',
+                    path: '/finance/repayment'
+                }],
             },{
                 id: '4',
                 name: '运营管理',
