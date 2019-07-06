@@ -51,7 +51,10 @@
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                              <label  class="label-width--middle">是否实名：</label>
                             <Select v-model="trust" style="width:auto">
-                                <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                                <Option
+                                    v-for="item in trusts"
+                                    :value="item.value"
+                                    :key="item.value">{{ item.label }}</Option>
                             </Select>
                         </div>
                     </Col>
@@ -59,7 +62,11 @@
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;display:flex;">
                              <label  class="label-width--middle">来源：</label>
                             <Select v-model="trust" style="width:auto">
-                                <Option v-for="item in trusts" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                                <Option
+                                    v-for="item in trusts"
+                                    :value="item.value"
+                                    :key="item.value">{{ item.label }}
+                                </Option>
                             </Select>
                         </div>
                     </Col>
@@ -67,9 +74,19 @@
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">注册时间：</label>
                             <div style="display:inline-block;">
-                                <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
+                                <Date-picker
+                                    type="date"
+                                    placement="bottom-end"
+                                    placeholder="选择日期"
+                                    style="width: 80px;">
+                                </Date-picker>
                                  -
-                                <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
+                                <Date-picker
+                                    type="date"
+                                    placement="bottom-end"
+                                    placeholder="选择日期"
+                                    style="width: 80px;">
+                                </Date-picker>
                             </div>
                         </div>
                     </Col>
@@ -88,6 +105,8 @@
 </template>
 <script>
     import axios from 'axios';
+    import qs from 'qs';
+
     export default {
       data (){
             return {
@@ -102,7 +121,69 @@
                    label: '否',
                    value: '2'
                 }],
-                headers: [],
+                headers: [
+                {
+                    title: '用户Id',
+                    key: 'id',
+                },
+                {
+                    title: '手机号码',
+                    key: 'phone',
+                },
+                {
+                    title: '姓名',
+                    key: 'name'
+                },
+                {
+                    title: '身份证号',
+                    key: 'idCard'
+                },
+                {
+                    title: '性别',
+                    key: 'sex'
+                },
+                {
+                    title: '注册时间',
+                    key: 'registerTime'
+                },
+                {
+                    title: '最后一次访问时间',
+                    key: 'lastTime'
+                },
+                {
+                    title: '授信状态',
+                    key: 'creditStatus'
+                },
+                {
+                    title: '授信总额',
+                    key: 'creditAmount'
+                },
+                {
+                    title: '手机运营商验证',
+                    key: 'phoneOperatorVeritical'
+                },
+                {
+                    title: '最后授信时间',
+                    key: 'lastCreditTime'
+                },
+                {
+                    title: '来源',
+                    key: 'source'
+                },
+                {
+                    title: '身份证正面照片',
+                    key: 'icardPositivePhone'
+                },
+                {
+                    title: '身份证背面照片',
+                    key: 'icardReversePhone'
+                },
+                {
+                    title: '操作',
+                    key: 'action',
+                    width: 200,
+                    render: this.render
+                }],
                 bodys: [],
                 id: '',
                 name: '',
@@ -117,101 +198,100 @@
                     return 'grey-background';
                 }
                 return '';
+            },
+            render(h, params){
+                return h('div', [
+                    h('Button', {
+                        props: {
+                            type: 'primary',
+                            size: 'small'
+                        },
+                        style: {
+                            marginRight: '10px'
+                        },
+                        on: {
+                            click: () => {
+                                // this.show(params.index)
+                            }
+                        }
+                    }, '添加黑名单'),
+                    h('Button', {
+                        props: {
+                            type: 'error',
+                            size: 'small'
+                        },
+                        on: {
+                            click: () => {
+                                // this.remove(params.index)
+                            }
+                        }
+                    }, '资料')
+                ]);
             }
         },
         mounted(){
-            this.headers = [
-              {
-                  title: '用户Id',
-                  key: 'id',
-              },
-              {
-                  title: '手机号码',
-                  key: 'phone',
-              },
-              {
-                  title: '姓名',
-                  key: 'name'
-              },
-              {
-                title: '身份证号',
-                key: 'idCard'
-              },
-             {
-                  title: '性别',
-                  key: 'sex'
-              },
-              {
-                title: '注册时间',
-                key: 'registerTime'
-            },
-            {
-              title: '最后一次访问时间',
-              key: 'lastTime'
-            },
-           {
-                title: '授信状态',
-                key: 'creditStatus'
-            },
-            {
-              title: '授信总额',
-              key: 'creditAmount'
-            },
-            {
-                title: '手机运营商验证',
-                key: 'phoneOperatorVeritical'
-            },
-            {
-                title: '最后授信时间',
-                key: 'lastCreditTime'
-            },
-            {
-                title: '来源',
-                key: 'source'
-            },
-            {
-                title: '身份证正面照片',
-                key: 'icardPositivePhone'
-            },
-            {
-               title: '身份证背面照片',
-               key: 'icardReversePhone'
-            },
-            {
-                title: '操作',
-                key: 'action',
-                width: 200,
-                render: (h, params) => {
-                    return h('div', [
-                        h('Button', {
-                            props: {
-                                type: 'primary',
-                                size: 'small'
-                            },
-                            style: {
-                                marginRight: '10px'
-                            },
-                            on: {
-                                click: () => {
-                                    this.show(params.index)
-                                }
-                            }
-                        }, '添加黑名单'),
-                        h('Button', {
-                            props: {
-                                type: 'error',
-                                size: 'small'
-                            },
-                            on: {
-                                click: () => {
-                                    this.remove(params.index)
-                                }
-                            }
-                        }, '资料')
-                    ]);
-                }
-            }];
 
+            // axios({
+            //     url: 'http://admin.51laiyun.com/debtorUser/list',
+            //     method: 'post',
+            //     data: {
+            //         limit: 25,
+            //         start: 0,
+            //         sort: '',
+            //         dir: 'ASC',
+            //         searchForm: {
+            //             id: "",
+            //             name: "",
+            //             mobile: "",
+            //             idNumber: "",
+            //             hasCredit: -1,
+            //             hasCreditSuccess: -1,
+            //             idVerified: -1,
+            //             source:"",
+            //             startDate:"",
+            //             endDate: ""
+            //         }
+            //     }
+            // })
+            // .then(function (response) {
+            //     // console.log(response);
+            // })
+            // .catch(function (error) {
+            //     // console.log(error);
+            // });
+
+            // const data = qs.stringify({
+            //     limit: 25,
+            //     start: 0,
+            //     sort: '',
+            //     dir: 'ASC',
+            //     searchForm: {
+            //         'id': "",
+            //         'name': "",
+            //         'mobile': "",
+            //         'idNumber': "",
+            //         'hasCredit': -1,
+            //         'hasCreditSuccess': -1,
+            //         'idVerified': -1,
+            //         'source':"",
+            //         'startDate':"",
+            //         'endDate': ""
+            //     }
+            // });
+            // axios({
+            //     url: 'http://10.1.135.148:3000/list',
+            //     method: 'post',
+            //     data,
+            //     headers: {
+            //         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            //     }
+            // })
+            // .then(function (response) {
+            //     // console.log(response);
+            // })
+            // .catch(function (error) {
+            //     // console.log(error);
+            // });
              this.bodys =  [
                 {
                   id: '11',
