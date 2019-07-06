@@ -15,7 +15,7 @@
                             <Input placeholder="Enter name" style="width: auto" v-model="orderId" />
                         </div>
                     </Col>
-                    <Col span="6">
+                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">用户：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="name" />
@@ -27,16 +27,14 @@
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
                     </Col>
-                </Row>
-                <Row>
-                    <Col span="5">
+                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">借款订单状态：</label>
                             <Select v-model="loanOrderStatus" style="width:auto">
                                 <Option
-                                    v-for="item in loanOrderStatuses"
-                                    :value="item.value"
-                                    :key="item.value">{{ item.label }}</Option>
+                                        v-for="item in loanOrderStatuses"
+                                        :value="item.value"
+                                        :key="item.value">{{ item.label }}</Option>
                             </Select>
                         </div>
                     </Col>
@@ -50,7 +48,9 @@
                             </div>
                         </div>
                     </Col>
-                    <Col span="4">
+                </Row>
+                <Row>
+                    <Col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">是否展期：</label>
                             <Select v-model="defer" style="width:auto">

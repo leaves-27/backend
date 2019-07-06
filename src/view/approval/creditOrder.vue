@@ -21,15 +21,13 @@
                             <Input placeholder="Enter name" style="width: auto"  v-model="name" />
                         </div>
                     </Col>
-                    <Col span="7">
+                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">手机号码：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
                     </Col>
-                </Row>
-                <Row>
-                    <Col span="5">
+                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">授信状态：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="credit" />
@@ -43,6 +41,9 @@
                             </Select>
                         </div>
                     </Col>
+                </Row>
+                <Row>
+
                     <Col span="7">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">开始申请时间：</label>
