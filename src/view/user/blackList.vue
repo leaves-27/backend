@@ -27,13 +27,13 @@
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
                     </Col>
-                    <Col span="6">
+                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">身份证号：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
                     </Col>
-                    <Col span="6">
+                    <Col span="7">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">进入黑名单时间：</label>
                             <div style="display:inline-block;">
@@ -45,7 +45,7 @@
                     </Col>
                 </Row>
                 <Row>
-                    <Col span="6">
+                    <Col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <i-button type="primary" style="margin-right:20px">查询</i-button>
                             <i-button type="primary">清空</i-button>
