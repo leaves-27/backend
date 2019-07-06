@@ -9,7 +9,7 @@
                 <Sider hide-trigger :style="{background: '#fff'}">
                     <Menus :menus="menus" />
                 </Sider>
-                <Layout :style="{padding: '0 24px 24px'}">
+                <Layout :style="{ padding: '0 24px 24px', width: '1134px', overflowX: 'auto' }">
                     <Breadcrumbs :breadcrumbs="breadcrumbs"/>
                     <Content :style="{padding: '0px', minHeight: '280px', background: 'transparent'}">
                         <router-view></router-view>
@@ -61,7 +61,15 @@
                 id: '2',
                 name: '审批管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '2-1',
+                    name: '授信订单',
+                    path: '/approval/creditOrder'
+                }, {
+                    id: '2-2',
+                    name: '借款订单',
+                    path: '/approval/loanOrder'
+                }],
             },{
                 id: '3',
                 name: '财务管理',
