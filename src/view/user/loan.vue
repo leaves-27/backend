@@ -76,6 +76,7 @@ export default {
             phone: '',
             idCard: '',
             trust: '0',
+            source: '',
         };
     },
     methods: {

@@ -87,164 +87,165 @@
     </Card>
 </template>
 <script>
-export default {
-  data (){
-        return {
-            self: this,
-            trusts: [{
-                label: '全部',
-                value: '0'
-            }, {
-               label: '是',
-               value: '1'
-            }, {
-               label: '否',
-               value: '2'
-            }],
-            headers: [],
-            bodys: [],
-            id: '',
-            name: '',
-            phone: '',
-            idCard: '',
-            trust: '0',
-        };
-    },
-    methods: {
-        rowClassName (row, index) {
-            if (index % 2 == 1) {
-                return 'grey-background';
+    import axios from 'axios';
+    export default {
+      data (){
+            return {
+                self: this,
+                trusts: [{
+                    label: '全部',
+                    value: '0'
+                }, {
+                   label: '是',
+                   value: '1'
+                }, {
+                   label: '否',
+                   value: '2'
+                }],
+                headers: [],
+                bodys: [],
+                id: '',
+                name: '',
+                phone: '',
+                idCard: '',
+                trust: '0',
+            };
+        },
+        methods: {
+            rowClassName (row, index) {
+                if (index % 2 == 1) {
+                    return 'grey-background';
+                }
+                return '';
             }
-            return '';
-        }
-    },
-    mounted(){
-        this.headers = [
-          {
-              title: '用户Id',
-              key: 'id',
-          },
-          {
-              title: '手机号码',
-              key: 'phone',
-          },
-          {
-              title: '姓名',
-              key: 'name'
-          },
-          {
-            title: '身份证号',
-            key: 'idCard'
-          },
-         {
-              title: '性别',
-              key: 'sex'
-          },
-          {
-            title: '注册时间',
-            key: 'registerTime'
         },
-        {
-          title: '最后一次访问时间',
-          key: 'lastTime'
-        },
-       {
-            title: '授信状态',
-            key: 'creditStatus'
-        },
-        {
-          title: '授信总额',
-          key: 'creditAmount'
-        },
-        {
-            title: '手机运营商验证',
-            key: 'phoneOperatorVeritical'
-        },
-        {
-            title: '最后授信时间',
-            key: 'lastCreditTime'
-        },
-        {
-            title: '来源',
-            key: 'source'
-        },
-        {
-            title: '身份证正面照片',
-            key: 'icardPositivePhone'
-        },
-        {
-           title: '身份证背面照片',
-           key: 'icardReversePhone'
-        },
-        {
-            title: '操作',
-            key: 'action',
-            width: 200,
-            render: (h, params) => {
-                return h('div', [
-                    h('Button', {
-                        props: {
-                            type: 'primary',
-                            size: 'small'
-                        },
-                        style: {
-                            marginRight: '10px'
-                        },
-                        on: {
-                            click: () => {
-                                this.show(params.index)
-                            }
-                        }
-                    }, '添加黑名单'),
-                    h('Button', {
-                        props: {
-                            type: 'error',
-                            size: 'small'
-                        },
-                        on: {
-                            click: () => {
-                                this.remove(params.index)
-                            }
-                        }
-                    }, '资料')
-                ]);
-            }
-        }];
-
-         this.bodys =  [
+        mounted(){
+            this.headers = [
+              {
+                  title: '用户Id',
+                  key: 'id',
+              },
+              {
+                  title: '手机号码',
+                  key: 'phone',
+              },
+              {
+                  title: '姓名',
+                  key: 'name'
+              },
+              {
+                title: '身份证号',
+                key: 'idCard'
+              },
+             {
+                  title: '性别',
+                  key: 'sex'
+              },
+              {
+                title: '注册时间',
+                key: 'registerTime'
+            },
             {
-              id: '11',
-              phone: '1539428703',
-              name: '陶少龙',
-              idCard: '',
-              sex: '男',
-              registerTime: '',
-              lastTime: '',
-              creditStatus: '',
-              creditAmount: '',
-              phoneOperatorVeritical: '',
-              lastCreditTime: '',
-              source: '',
-              icardPositivePhone: '',
-              icardReversePhone: '12312',
-            }, {
-             id: '11',
-             phone: '1539428703',
-             name: '陶少龙',
-             idCard: '',
-             sex: '男',
-             registerTime: '',
-             lastTime: '',
-             creditStatus: '',
-             creditAmount: '',
-             phoneOperatorVeritical: '',
-             lastCreditTime: '',
-             source: '',
-             icardPositivePhone: '',
-             icardReversePhone: '12312',
+              title: '最后一次访问时间',
+              key: 'lastTime'
+            },
+           {
+                title: '授信状态',
+                key: 'creditStatus'
+            },
+            {
+              title: '授信总额',
+              key: 'creditAmount'
+            },
+            {
+                title: '手机运营商验证',
+                key: 'phoneOperatorVeritical'
+            },
+            {
+                title: '最后授信时间',
+                key: 'lastCreditTime'
+            },
+            {
+                title: '来源',
+                key: 'source'
+            },
+            {
+                title: '身份证正面照片',
+                key: 'icardPositivePhone'
+            },
+            {
+               title: '身份证背面照片',
+               key: 'icardReversePhone'
+            },
+            {
+                title: '操作',
+                key: 'action',
+                width: 200,
+                render: (h, params) => {
+                    return h('div', [
+                        h('Button', {
+                            props: {
+                                type: 'primary',
+                                size: 'small'
+                            },
+                            style: {
+                                marginRight: '10px'
+                            },
+                            on: {
+                                click: () => {
+                                    this.show(params.index)
+                                }
+                            }
+                        }, '添加黑名单'),
+                        h('Button', {
+                            props: {
+                                type: 'error',
+                                size: 'small'
+                            },
+                            on: {
+                                click: () => {
+                                    this.remove(params.index)
+                                }
+                            }
+                        }, '资料')
+                    ]);
+                }
             }];
+
+             this.bodys =  [
+                {
+                  id: '11',
+                  phone: '1539428703',
+                  name: '陶少龙',
+                  idCard: '',
+                  sex: '男',
+                  registerTime: '',
+                  lastTime: '',
+                  creditStatus: '',
+                  creditAmount: '',
+                  phoneOperatorVeritical: '',
+                  lastCreditTime: '',
+                  source: '',
+                  icardPositivePhone: '',
+                  icardReversePhone: '12312',
+                }, {
+                 id: '11',
+                 phone: '1539428703',
+                 name: '陶少龙',
+                 idCard: '',
+                 sex: '男',
+                 registerTime: '',
+                 lastTime: '',
+                 creditStatus: '',
+                 creditAmount: '',
+                 phoneOperatorVeritical: '',
+                 lastCreditTime: '',
+                 source: '',
+                 icardPositivePhone: '',
+                 icardReversePhone: '12312',
+                }];
+        }
     }
-}
 </script>
 <style>
     .ivu-card-head{
