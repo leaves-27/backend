@@ -9,31 +9,31 @@
         <div>
             <Card style="margin-bottom:20px;text-align:left;">
                 <Row>
-                    <Col span="5">
+                    <i-col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--samll">放款订单号：</label>
                             <Input placeholder="Enter name" style="width: auto" v-model="id" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">姓名：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="name" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">手机号码：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">身份证号：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--middle">放款状态：</label>
                             <Select v-model="trust" style="width:auto">
@@ -44,16 +44,16 @@
                                 </Option>
                             </Select>
                         </div>
-                    </Col>
-                    <Col span="3">
+                    </i-col>
+                    <i-col span="3">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">来源：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="idCard" />
                         </div>
-                    </Col>
+                    </i-col>
                 </Row>
                 <Row>
-                    <Col span="5">
+                    <i-col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--middle">放款通道：</label>
                             <Select v-model="trust">
@@ -64,8 +64,8 @@
                                 </Option>
                             </Select>
                         </div>
-                    </Col>
-                    <Col span="6">
+                    </i-col>
+                    <i-col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">申请时间：</label>
                             <div style="display:inline-block;">
@@ -84,8 +84,8 @@
                                 </Date-picker>
                             </div>
                         </div>
-                    </Col>
-                    <Col span="6">
+                    </i-col>
+                    <i-col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">放款时间：</label>
                             <div style="display:inline-block;">
@@ -104,14 +104,14 @@
                                 </Date-picker>
                             </div>
                         </div>
-                    </Col>
+                    </i-col>
 
-                    <Col span="3">
+                    <i-col span="3">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <i-button type="primary" style="margin-right:20px">查询</i-button>
                             <i-button type="primary">清空</i-button>
                         </div>
-                    </Col>
+                    </i-col>
                 </Row>
             </Card>
             <i-table border :content="self" :columns="headers" :data="bodys" :row-class-name="rowClassName"></i-table>

@@ -9,25 +9,25 @@
         <div>
             <Card style="margin-bottom:20px;text-align:left;">
                 <Row>
-                    <Col span="5">
+                    <i-col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--samll">借款订单号：</label>
                             <Input placeholder="Enter name" style="width: auto" v-model="orderId" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">用户：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="name" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">手机号码：</label>
                             <Input placeholder="Enter name" style="width: auto"  v-model="phone" />
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">借款订单状态：</label>
                             <Select v-model="loanOrderStatus" style="width:auto">
@@ -37,8 +37,8 @@
                                         :key="item.value">{{ item.label }}</Option>
                             </Select>
                         </div>
-                    </Col>
-                    <Col span="6">
+                    </i-col>
+                    <i-col span="6">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">创建时间：</label>
                             <div style="display:inline-block;">
@@ -47,10 +47,10 @@
                                 <Date-picker type="date" placement="bottom-end" placeholder="选择日期" style="width: 80px;"></Date-picker>
                             </div>
                         </div>
-                    </Col>
+                    </i-col>
                 </Row>
                 <Row>
-                    <Col span="5">
+                    <i-col span="5">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label class="label-width--samll">是否展期：</label>
                             <Select v-model="defer" style="width:auto">
@@ -60,13 +60,13 @@
                                         :key="item.value">{{ item.label }}</Option>
                             </Select>
                         </div>
-                    </Col>
-                    <Col span="4">
+                    </i-col>
+                    <i-col span="4">
                         <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <i-button type="primary" style="margin-right:20px">查询</i-button>
                             <i-button type="primary">清空</i-button>
                         </div>
-                    </Col>
+                    </i-col>
                 </Row>
             </Card>
             <i-table border :content="self" :columns="headers" :data="bodys" :row-class-name="rowClassName"></i-table>
