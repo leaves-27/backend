@@ -99,7 +99,7 @@
                 </Row>
              </Card>
             <i-table border :content="self" :columns="headers" :data="bodys" :row-class-name="rowClassName"></i-table>
-            <Page :total="100" show-elevator style="margin-top:20px;"></Page>
+            <Page :total="total" show-elevator style="margin-top:20px;"></Page>
         </div>
     </Card>
 </template>
@@ -219,7 +219,8 @@
                 trust: '0',
                 originData: {
                     items: []
-                }
+                },
+                total: 0
             };
         },
         computed: {
@@ -308,11 +309,12 @@
             })
             .then(function (response) {
               const { data } = response;
-              const { debtorUsers } = data;
+              const { debtorUsers, total } = data;
               this.originData.items = debtorUsers;
+              this.total = total;
             })
             .catch(function (error) {
-                // console.log(error);
+                console.log(error);
             });
         }
     }
