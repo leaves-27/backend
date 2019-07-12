@@ -79,17 +79,41 @@
                 id: '4',
                 name: '运营管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '4-1',
+                    name: '渠道统计',
+                    path: '/operating/channelStatistics'
+                }, {
+                    id: '4-2',
+                    name: '渠道统计原',
+                    path: '/operating/channelStatisticsSource'
+                }],
             },{
                 id: '5',
                 name: '催收管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '5-1',
+                    name: '催收订单',
+                    path: '/collection/order'
+                }, {
+                    id: '5-2',
+                    name: '催收统计',
+                    path: '/collection/statistics'
+                }, {
+                    id: '5-3',
+                    name: '催收统计明细',
+                    path: '/collection/statisticsDetail'
+                }],
             },{
                 id: '6',
                 name: '统计管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '6-1',
+                    name: '还款统计',
+                    path: '/statistics/repayment'
+                }],
             },{
                 id: '7',
                 name: '账户管理',
@@ -98,11 +122,6 @@
             },{
                 id: '8',
                 name: '设置管理',
-                icon: 'ios-keypad',
-                items: [],
-            },{
-                id: '9',
-                name: '系统管理',
                 icon: 'ios-keypad',
                 items: [],
             }];

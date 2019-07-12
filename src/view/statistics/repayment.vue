@@ -9,30 +9,28 @@
         <div>
             <Card style="margin-bottom:20px;text-align:left;">
                 <Row>
-                    <i-col span="5">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;padding-left:10px;padding-right:10px;">
+                    <i-col span="6">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <label  class="label-width--small">日期：</label>
                             <div style="display:inline-block;">
                                 <Date-picker
-                                        v-model="date.startDate"
                                         type="date"
                                         placement="bottom-end"
                                         placeholder="选择日期"
-                                        style="width: 80px">
+                                        style="width: 80px;">
                                 </Date-picker>
                                 -
                                 <Date-picker
-                                        v-model="date.endDate"
                                         type="date"
                                         placement="bottom-end"
                                         placeholder="选择日期"
-                                        style="width: 80px">
+                                        style="width: 80px;">
                                 </Date-picker>
                             </div>
                         </div>
                     </i-col>
                     <i-col span="6">
-                        <div style="display:flex;justify-content:flex-start;align-items:center;margin-right:20px;padding-left:10px;padding-right:10px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-right:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;">
                             <i-button type="primary" style="margin-right:20px">查询</i-button>
                             <i-button type="primary">清空</i-button>
                         </div>
@@ -47,93 +45,88 @@
 <script>
 	import axios from 'axios';
 	import qs from 'qs';
-	const headers = [
-		{
-			title: '日期',
-			key: 'date',
-		},
-		{
-			title: '新增入催笔数',
-			key: 'newAddCollectCount',
-		},
-		{
-			title: '新增入催金额',
-			key: 'newAddCollectAmount'
-		},
-		{
-			title: '累计逾期未还笔数',
-			key: 'delayUnrepaymentCount'
-		},
-		{
-			title: '累计逾期危害金额',
-			key: 'delayUnrepaymentAmount'
-		},
-		{
-			title: '催收还款笔数',
-			key: 'collectionRepaymentCount'
-		},
-        {
-            title: '催收还款金额',
-            key: 'collectionRepaymentAmount'
-        },
-        {
-            title: '1-3天回款笔数',
-            key: '1To3RepaymentCount'
-        },
-        {
-            title: '1-3天回款金额',
-            key: '1To3RepaymentAmount'
-        },
-        {
-            title: '4-7天回款笔数',
-            key: '4To7RepaymentCount'
-        },
-        {
-            title: '4-7天回款金额',
-            key: '4To7RepaymentAmount'
-        },
-        {
-            title: '8-15天回款笔数',
-            key: '8To15RepaymentCount'
-        },
-        {
-            title: '8-15天回款金额',
-            key: '8To15RepaymentAmount'
-        },
-        {
-            title: '16-30天回款笔数',
-            key: '16To30RepaymentCount'
-        },
-        {
-            title: '16-30天回款金额',
-            key: '16To30RepaymentAmount'
-        },
-        {
-            title: '31-60天回款笔数',
-            key: '31To60RepaymentCount'
-        },
-        {
-            title: '31-60天回款金额',
-            key: '31To60RepaymentAmount'
-        },
-        {
-            title: '60天以上回款笔数',
-            key: '60ToAboveRepaymentCount'
-        },
-        {
-            title: '60天以上回款金额',
-            key: '60ToAboveRepaymentAmount'
-			}];
+
 	export default {
 		data (){
 			return {
 				self: this,
-                date: {
-                    startDate: '',
-                    endDate: ''
-                },
-				headers,
+				trusts: [{
+					label: '全部',
+					value: '0'
+				}, {
+					label: '是',
+					value: '1'
+				}, {
+					label: '否',
+					value: '2'
+				}],
+				headers: [
+					{
+						title: '日期',
+						key: 'date',
+					},
+					{
+						title: '应还款总额',
+						key: 'shouldRepaymentAmount',
+					},
+					{
+						title: '正常还款笔数',
+						key: 'normalRepaymentCount'
+					},
+					{
+						title: '正常还款额',
+						key: 'normalRepaymentAmount'
+					},
+					{
+						title: '首借自然还款率',
+						key: 'firstBorrowNormalRepaymentRate'
+					},
+					{
+						title: '首借还款率',
+						key: 'firstBorrowRepaymentRate'
+					},
+					{
+						title: '复借还款率',
+						key: 'reborrowRepaymentRate'
+					},
+					{
+						title: '正常还款率',
+						key: 'normalRepaymentRate'
+					},
+					{
+						title: '逾期已还数',
+						key: 'delayRepaymentedCounts'
+					},
+					{
+						title: '逾期还款额',
+						key: 'delayRepaymentAmount'
+					},
+					{
+						title: '坏账',
+						key: 'badDebt'
+					},
+					{
+						title: '逾期未还总额',
+						key: 'delayNoRepaymentAmount'
+					},
+					{
+						title: '催回率',
+						key: 'recoveryRate'
+					},
+					{
+						title: '坏账率',
+						key: 'badDebtRate'
+					},
+					{
+						title: '当前逾期率',
+						key: 'delayRate',
+					}],
 				bodys: [],
+				id: '',
+				name: '',
+				phone: '',
+				idCard: '',
+				trust: '0',
 			};
 		},
 		methods: {
@@ -143,6 +136,35 @@
 				}
 				return '';
 			},
+			render(h, params){
+				return h('div', [
+					h('Button', {
+						props: {
+							type: 'primary',
+							size: 'small'
+						},
+						style: {
+							marginRight: '10px'
+						},
+						on: {
+							click: () => {
+								// this.show(params.index)
+							}
+						}
+					}, '添加黑名单'),
+					h('Button', {
+						props: {
+							type: 'error',
+							size: 'small'
+						},
+						on: {
+							click: () => {
+								// this.remove(params.index)
+							}
+						}
+					}, '资料')
+				]);
+			}
 		},
 		mounted(){
 
