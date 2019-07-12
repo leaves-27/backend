@@ -31,40 +31,7 @@
 
             }
 		},
-		mounted(){
-			this.bodys =  [
-				{
-					id: '11',
-					phone: '1539428703',
-					name: '陶少龙',
-					idCard: '',
-					sex: '男',
-					registerTime: '',
-					lastTime: '',
-					creditStatus: '',
-					creditAmount: '',
-					phoneOperatorVeritical: '',
-					lastCreditTime: '',
-					source: '',
-					icardPositivePhone: '',
-					icardReversePhone: '12312',
-				}, {
-					id: '11',
-					phone: '1539428703',
-					name: '陶少龙',
-					idCard: '',
-					sex: '男',
-					registerTime: '',
-					lastTime: '',
-					creditStatus: '',
-					creditAmount: '',
-					phoneOperatorVeritical: '',
-					lastCreditTime: '',
-					source: '',
-					icardPositivePhone: '',
-					icardReversePhone: '12312',
-				}];
-		}
+		mounted(){}
 	}
 </script>
 <style>

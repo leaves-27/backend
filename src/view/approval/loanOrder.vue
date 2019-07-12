@@ -75,6 +75,79 @@
     </Card>
 </template>
 <script>
+    const headers = [
+	    {
+		    title: '授信订单号',
+		    key: 'creditOrderId',
+	    },
+	    {
+		    title: '审核人员',
+		    key: 'auditor',
+	    },
+	    {
+		    title: '授信状态',
+		    key: 'creditStatus'
+	    },
+	    {
+		    title: '历史授信状态',
+		    key: 'historyCreditStatus'
+	    },
+	    {
+		    title: '用户ID',
+		    key: 'userId'
+	    },
+	    {
+		    title: '姓名',
+		    key: 'name'
+	    },
+	    {
+		    title: '手机号码',
+		    key: 'phone'
+	    },
+	    {
+		    title: '身份证号',
+		    key: 'idCard'
+	    },
+	    {
+		    title: '申请时间',
+		    key: 'applyTime'
+	    },
+	    {
+		    title: '是否命中本地黑名单',
+		    key: 'isHitNativeBlackList'
+	    },
+	    {
+		    title: '是否通过新颜',
+		    key: 'isThroughtNewFace'
+	    },
+	    {
+		    title: '自动计算授信额度',
+		    key: 'autoCountCreditAmount'
+	    },
+	    {
+		    title: '是否人工介入审核',
+		    key: 'isApprovalByPeople'
+	    },
+	    {
+		    title: '最终授信额度',
+		    key: 'lastCreditAmount'
+	    },
+	    {
+		    title: '授信通过时间',
+		    key: 'creditThroughTime',
+	    },
+	    {
+		    title: '授信过期时间',
+		    key: 'creditOverDate',
+	    },
+	    {
+		    title: '更新时间',
+		    key: 'updateTime',
+	    },
+	    {
+		    title: '备注',
+		    key: 'desc',
+	    }];
 	export default {
 		data (){
 			return {
@@ -89,7 +162,7 @@
 					label: '否',
 					value: '2'
 				}],
-				headers: [],
+				headers,
 				bodys: [],
 				orderId: '',
 				name: '',
@@ -121,79 +194,6 @@
 			}
 		},
 		mounted(){
-			this.headers = [
-				{
-					title: '授信订单号',
-					key: 'creditOrderId',
-				},
-				{
-					title: '审核人员',
-					key: 'auditor',
-				},
-				{
-					title: '授信状态',
-					key: 'creditStatus'
-				},
-				{
-					title: '历史授信状态',
-					key: 'historyCreditStatus'
-				},
-				{
-					title: '用户ID',
-					key: 'userId'
-				},
-				{
-					title: '姓名',
-					key: 'name'
-				},
-				{
-					title: '手机号码',
-					key: 'phone'
-				},
-				{
-					title: '身份证号',
-					key: 'idCard'
-				},
-				{
-					title: '申请时间',
-					key: 'applyTime'
-				},
-				{
-					title: '是否命中本地黑名单',
-					key: 'isHitNativeBlackList'
-				},
-				{
-					title: '是否通过新颜',
-					key: 'isThroughtNewFace'
-				},
-				{
-					title: '自动计算授信额度',
-					key: 'autoCountCreditAmount'
-				},
-				{
-					title: '是否人工介入审核',
-					key: 'isApprovalByPeople'
-				},
-				{
-					title: '最终授信额度',
-					key: 'lastCreditAmount'
-				},
-				{
-					title: '授信通过时间',
-					key: 'creditThroughTime',
-				},
-				{
-					title: '授信过期时间',
-					key: 'creditOverDate',
-				},
-				{
-					title: '更新时间',
-					key: 'updateTime',
-				},
-				{
-					title: '备注',
-					key: 'desc',
-				}];
 
 			this.bodys =  [
 				{

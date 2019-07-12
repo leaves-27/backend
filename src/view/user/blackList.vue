@@ -59,108 +59,108 @@
     </Card>
 </template>
 <script>
-export default {
-  data (){
-        return {
-            self: this,
-            headers: [],
-            bodys: [],
-            id: '',
-            name: '',
-            phone: '',
-            idCard: '',
-            trust: '0',
-        };
+    const headers = [
+    {
+        title: '借款用户Id',
+        key: 'id',
     },
-    methods: {
-        rowClassName (row, index) {
-            if (index % 2 == 1) {
-                return 'grey-background';
+    {
+        title: '类型',
+        key: 'type',
+    },
+    {
+        title: '手机号码',
+        key: 'phone',
+    },
+    {
+        title: '姓名',
+        key: 'name'
+    },
+    {
+        title: '身份证号',
+        key: 'idCard'
+    },
+    {
+        title: '性别',
+        key: 'sex'
+    },
+    {
+        title: '进入黑名单时间',
+        key: 'blackListTime'
+    },
+    {
+        title: '过期时间',
+        key: 'overTime'
+    },
+    {
+        title: '最后一次访问时间',
+        key: 'lastViewTime'
+    },
+    {
+        title: '创建人',
+        key: 'creator'
+    },
+    {
+        title: '说明',
+        key: 'instructions'
+    }];
+    export default {
+      data (){
+            return {
+                self: this,
+                headers,
+                bodys: [],
+                id: '',
+                name: '',
+                phone: '',
+                idCard: '',
+                trust: '0',
+            };
+        },
+        methods: {
+            rowClassName (row, index) {
+                if (index % 2 == 1) {
+                    return 'grey-background';
+                }
+                return '';
             }
-            return '';
-        }
-    },
-    mounted(){
-        this.headers = [
-          {
-              title: '借款用户Id',
-              key: 'id',
-          },
-          {
-                title: '类型',
-                key: 'type',
-           },
-          {
-              title: '手机号码',
-              key: 'phone',
-          },
-          {
-              title: '姓名',
-              key: 'name'
-          },
-          {
-            title: '身份证号',
-            key: 'idCard'
-          },
-         {
-              title: '性别',
-              key: 'sex'
-          },
-          {
-            title: '进入黑名单时间',
-            key: 'blackListTime'
         },
-       {
-            title: '过期时间',
-            key: 'overTime'
-        },
-        {
-            title: '最后一次访问时间',
-            key: 'lastViewTime'
-        },
-        {
-            title: '创建人',
-            key: 'creator'
-        },
-        {
-            title: '说明',
-            key: 'instructions'
-        }];
+        mounted(){
 
-         this.bodys =  [
-            {
-              id: '11',
-              phone: '1539428703',
-              name: '陶少龙',
-              idCard: '',
-              sex: '男',
-              registerTime: '',
-              lastTime: '',
-              creditStatus: '',
-              creditAmount: '',
-              phoneOperatorVeritical: '',
-              lastCreditTime: '',
-              source: '',
-              icardPositivePhone: '',
-              icardReversePhone: '12312',
-            }, {
-             id: '11',
-             phone: '1539428703',
-             name: '陶少龙',
-             idCard: '',
-             sex: '男',
-             registerTime: '',
-             lastTime: '',
-             creditStatus: '',
-             creditAmount: '',
-             phoneOperatorVeritical: '',
-             lastCreditTime: '',
-             source: '',
-             icardPositivePhone: '',
-             icardReversePhone: '12312',
-            }];
+             this.bodys =  [
+                {
+                  id: '11',
+                  phone: '1539428703',
+                  name: '陶少龙',
+                  idCard: '',
+                  sex: '男',
+                  registerTime: '',
+                  lastTime: '',
+                  creditStatus: '',
+                  creditAmount: '',
+                  phoneOperatorVeritical: '',
+                  lastCreditTime: '',
+                  source: '',
+                  icardPositivePhone: '',
+                  icardReversePhone: '12312',
+                }, {
+                 id: '11',
+                 phone: '1539428703',
+                 name: '陶少龙',
+                 idCard: '',
+                 sex: '男',
+                 registerTime: '',
+                 lastTime: '',
+                 creditStatus: '',
+                 creditAmount: '',
+                 phoneOperatorVeritical: '',
+                 lastCreditTime: '',
+                 source: '',
+                 icardPositivePhone: '',
+                 icardReversePhone: '12312',
+                }];
+        }
     }
-}
 </script>
 <style>
     .ivu-card-head{

@@ -184,6 +184,87 @@
 <script>
 	import axios from 'axios';
 	import qs from 'qs';
+	const headers = [
+    {
+        title: '账单号',
+        key: 'billId',
+    },
+    {
+        title: '是否复借',
+        key: 'isContinueBorrow',
+    },
+    {
+        title: '账单状态',
+        key: 'billStatus'
+    },
+    {
+        title: '用户ID',
+        key: 'userId'
+    },
+    {
+        title: '姓名',
+        key: 'name'
+    },
+    {
+        title: '芝麻信用分',
+        key: 'ZiMaTtrustMark'
+    },
+    {
+        title: '手机号码',
+        key: 'phone'
+    },
+    {
+        title: '身份证号',
+        key: 'idCard'
+    },
+    {
+        title: '逾期天数',
+        key: 'overdueDays'
+    },
+    {
+        title: '合同金额',
+        key: 'contractAmount'
+    },
+    {
+        title: '应还金额',
+        key: 'shouldPaymentAmount'
+    },
+    {
+        title: '实还金额',
+        key: 'realPaymentAmount'
+    },
+    {
+        title: '放款日',
+        key: 'loanDate'
+    },
+    {
+        title: '实际还款日',
+        key: 'realPaymentDate'
+    },
+    {
+        title: '订单创建时间',
+        key: 'orderCreateTime'
+    },
+    {
+        title: '更新时间',
+        key: 'updateTime'
+    },
+    {
+        title: '催收员',
+        key: 'collector'
+    },
+    {
+        title: '付款方式',
+        key: 'paymentWay'
+    },
+    {
+        title: '来源',
+        key: 'source'
+    },
+    {
+        title: '备注',
+        key: 'desc',
+    }];
 
 	export default {
 		data (){
@@ -199,93 +280,15 @@
 					label: '否',
 					value: '2'
 				}],
-				headers: [
-					{
-						title: '账单号',
-						key: 'billId',
-					},
-					{
-						title: '是否复借',
-						key: 'isContinueBorrow',
-					},
-					{
-						title: '账单状态',
-						key: 'billStatus'
-					},
-					{
-						title: '用户ID',
-						key: 'userId'
-					},
-					{
-						title: '姓名',
-						key: 'name'
-					},
-					{
-						title: '芝麻信用分',
-						key: 'ZiMaTtrustMark'
-					},
-					{
-						title: '手机号码',
-						key: 'phone'
-					},
-					{
-						title: '身份证号',
-						key: 'idCard'
-					},
-					{
-						title: '逾期天数',
-						key: 'overdueDays'
-					},
-					{
-						title: '合同金额',
-						key: 'contractAmount'
-					},
-					{
-						title: '应还金额',
-						key: 'shouldPaymentAmount'
-					},
-					{
-						title: '实还金额',
-						key: 'realPaymentAmount'
-					},
-					{
-						title: '放款日',
-						key: 'loanDate'
-					},
-					{
-						title: '实际还款日',
-						key: 'realPaymentDate'
-					},
-                    {
-                        title: '订单创建时间',
-                        key: 'orderCreateTime'
-                    },
-                    {
-                        title: '更新时间',
-                        key: 'updateTime'
-                    },
-                    {
-                        title: '催收员',
-                        key: 'collector'
-                    },
-                    {
-                        title: '付款方式',
-                        key: 'paymentWay'
-                    },
-                    {
-                        title: '来源',
-                        key: 'source'
-                    },
-					{
-						title: '备注',
-						key: 'desc',
-					}],
+				headers,
 				bodys: [],
 				id: '',
 				name: '',
 				phone: '',
 				idCard: '',
 				trust: '0',
+                start: '',
+                end: ''
 			};
 		},
 		methods: {

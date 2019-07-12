@@ -45,6 +45,67 @@
 <script>
 	import axios from 'axios';
 	import qs from 'qs';
+	const headers = [
+    {
+        title: '日期',
+        key: 'date',
+    },
+    {
+        title: '应还款总额',
+        key: 'shouldRepaymentAmount',
+    },
+    {
+        title: '正常还款笔数',
+        key: 'normalRepaymentCount'
+    },
+    {
+        title: '正常还款额',
+        key: 'normalRepaymentAmount'
+    },
+    {
+        title: '首借自然还款率',
+        key: 'firstBorrowNormalRepaymentRate'
+    },
+    {
+        title: '首借还款率',
+        key: 'firstBorrowRepaymentRate'
+    },
+    {
+        title: '复借还款率',
+        key: 'reborrowRepaymentRate'
+    },
+    {
+        title: '正常还款率',
+        key: 'normalRepaymentRate'
+    },
+    {
+        title: '逾期已还数',
+        key: 'delayRepaymentedCounts'
+    },
+    {
+        title: '逾期还款额',
+        key: 'delayRepaymentAmount'
+    },
+    {
+        title: '坏账',
+        key: 'badDebt'
+    },
+    {
+        title: '逾期未还总额',
+        key: 'delayNoRepaymentAmount'
+    },
+    {
+        title: '催回率',
+        key: 'recoveryRate'
+    },
+    {
+        title: '坏账率',
+        key: 'badDebtRate'
+    },
+    {
+        title: '当前逾期率',
+        key: 'delayRate',
+    }];
 
 	export default {
 		data (){
@@ -60,67 +121,7 @@
 					label: '否',
 					value: '2'
 				}],
-				headers: [
-					{
-						title: '日期',
-						key: 'date',
-					},
-					{
-						title: '应还款总额',
-						key: 'shouldRepaymentAmount',
-					},
-					{
-						title: '正常还款笔数',
-						key: 'normalRepaymentCount'
-					},
-					{
-						title: '正常还款额',
-						key: 'normalRepaymentAmount'
-					},
-					{
-						title: '首借自然还款率',
-						key: 'firstBorrowNormalRepaymentRate'
-					},
-					{
-						title: '首借还款率',
-						key: 'firstBorrowRepaymentRate'
-					},
-					{
-						title: '复借还款率',
-						key: 'reborrowRepaymentRate'
-					},
-					{
-						title: '正常还款率',
-						key: 'normalRepaymentRate'
-					},
-					{
-						title: '逾期已还数',
-						key: 'delayRepaymentedCounts'
-					},
-					{
-						title: '逾期还款额',
-						key: 'delayRepaymentAmount'
-					},
-					{
-						title: '坏账',
-						key: 'badDebt'
-					},
-					{
-						title: '逾期未还总额',
-						key: 'delayNoRepaymentAmount'
-					},
-					{
-						title: '催回率',
-						key: 'recoveryRate'
-					},
-					{
-						title: '坏账率',
-						key: 'badDebtRate'
-					},
-					{
-						title: '当前逾期率',
-						key: 'delayRate',
-					}],
+				headers,
 				bodys: [],
 				id: '',
 				name: '',

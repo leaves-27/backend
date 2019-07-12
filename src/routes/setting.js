@@ -1,4 +1,4 @@
-import globalConfig from "../view/setting/globalConfig";
+import GlobalConfig from "../view/setting/globalConfig";
 
 export default [
 	{
@@ -7,6 +7,6 @@ export default [
 	},
 	{
 		path: '/setting/globalConfig',
-		component: globalConfig
+		component: GlobalConfig
 	}
 ];

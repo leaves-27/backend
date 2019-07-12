@@ -122,6 +122,75 @@
 <script>
 	import axios from 'axios';
 	import qs from 'qs';
+	const headers = [
+    {
+        title: '放款订单编号',
+        key: 'loanOrderId',
+    },
+    {
+        title: '放款状态',
+        key: 'loanStatus',
+    },
+    {
+        title: '借款订单号',
+        key: 'loanOrderId'
+    },
+    {
+        title: '用户ID',
+        key: 'id'
+    },
+    {
+        title: '姓名',
+        key: 'name'
+    },
+    {
+        title: '手机号码',
+        key: 'phone'
+    },
+    {
+        title: '身份证号',
+        key: 'idCard'
+    },
+    {
+        title: '放款银行卡号',
+        key: 'loanBankCardNo'
+    },
+    {
+        title: '放款银行',
+        key: 'loanBank'
+    },
+    {
+        title: '放款本金',
+        key: 'loanCapital'
+    },
+    {
+        title: '放款金额',
+        key: 'loanAmount'
+    },
+    {
+        title: '申请时间',
+        key: 'applyTime'
+    },
+    {
+        title: '放款时间',
+        key: 'loanTime'
+    },
+    {
+        title: '修改时间',
+        key: 'modifyTime'
+    },
+    {
+        title: '放款通道',
+        key: 'loanChannel'
+    },
+    {
+        title: '来源',
+        key: 'source'
+    },
+    {
+        title: '备注',
+        key: 'desc',
+    }];
 
 	export default {
 		data (){
@@ -137,75 +206,7 @@
 					label: '否',
 					value: '2'
 				}],
-				headers: [
-					{
-						title: '放款订单编号',
-						key: 'loanOrderId',
-					},
-					{
-						title: '放款状态',
-						key: 'loanStatus',
-					},
-					{
-						title: '借款订单号',
-						key: 'loanOrderId'
-					},
-					{
-						title: '用户ID',
-						key: 'id'
-					},
-					{
-						title: '姓名',
-						key: 'name'
-					},
-					{
-						title: '手机号码',
-						key: 'phone'
-					},
-					{
-						title: '身份证号',
-						key: 'idCard'
-					},
-					{
-						title: '放款银行卡号',
-						key: 'loanBankCardNo'
-					},
-					{
-						title: '放款银行',
-						key: 'loanBank'
-					},
-					{
-						title: '放款本金',
-						key: 'loanCapital'
-					},
-					{
-						title: '放款金额',
-						key: 'loanAmount'
-					},
-					{
-						title: '申请时间',
-						key: 'applyTime'
-					},
-					{
-						title: '放款时间',
-						key: 'loanTime'
-					},
-					{
-						title: '修改时间',
-						key: 'modifyTime'
-					},
-                    {
-                        title: '放款通道',
-                        key: 'loanChannel'
-                    },
-                    {
-                        title: '来源',
-                        key: 'source'
-                    },
-					{
-						title: '备注',
-						key: 'desc',
-					}],
+				headers,
 				bodys: [],
 				id: '',
 				name: '',

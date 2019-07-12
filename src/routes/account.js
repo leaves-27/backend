@@ -1,5 +1,5 @@
-import modifiyPassword from "../view/account/modifiyPassword";
-import userMange from "../view/account/userMange";
+import ModifiyPassword from "../view/account/modifiyPassword";
+import UserMange from "../view/account/userMange";
 
 export default [
 	{
@@ -8,10 +8,10 @@ export default [
 	},
 	{
 		path: '/account/modifiyPassword',
-		component: modifiyPassword
+		component: ModifiyPassword
 	},
 	{
 		path: '/account/userMange',
-		component: userMange
+		component: UserMange
 	}
 ];

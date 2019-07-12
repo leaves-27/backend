@@ -1,5 +1,5 @@
-import creditOrder from "../view/approval/creditOrder";
-import loanOrder from "../view/approval/loanOrder";
+import CreditOrder from "../view/approval/creditOrder";
+import LoanOrder from "../view/approval/loanOrder";
 
 export default [
     {
@@ -8,9 +8,9 @@ export default [
     },
     {
         path: '/approval/creditOrder',
-        component: creditOrder
+        component: CreditOrder
     },{
         path: '/approval/loanOrder',
-        component: loanOrder
+        component: LoanOrder
     }
 ];

@@ -1,5 +1,5 @@
-import loanOrder from "../view/finance/loanOrder";
-import repayment from "../view/finance/repayment";
+import LoanOrder from "../view/finance/loanOrder";
+import Repayment from "../view/finance/repayment";
 
 export default [
     {
@@ -8,9 +8,9 @@ export default [
     },
     {
         path: '/finance/loanOrder',
-        component: loanOrder
+        component: LoanOrder
     },{
         path: '/finance/repayment',
-        component: repayment
+        component: Repayment
     }
 ];

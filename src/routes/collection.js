@@ -1,6 +1,6 @@
-import order from "../view/collection/order";
-import statistics from "../view/collection/statistics";
-import statisticsDetail from "../view/collection/statisticsDetail";
+import Order from "../view/collection/order";
+import Statistics from "../view/collection/statistics";
+import StatisticsDetail from "../view/collection/statisticsDetail";
 
 export default [
 	{
@@ -9,14 +9,14 @@ export default [
 	},
 	{
 		path: '/collection/order',
-		component: order
+		component: Order
 	},
 	{
 		path: '/collection/statistics',
-		component: statistics
+		component: Statistics
 	},
 	{
 		path: '/collection/statisticsDetail',
-		component: statisticsDetail
+		component: StatisticsDetail
 	}
 ];

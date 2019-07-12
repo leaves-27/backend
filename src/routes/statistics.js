@@ -1,4 +1,4 @@
-import repayment from "../view/statistics/repayment";
+import Repayment from "../view/statistics/repayment";
 
 export default [
 	{
@@ -7,6 +7,6 @@ export default [
 	},
 	{
 		path: '/statistics/repayment',
-		component: repayment
+		component: Repayment
 	}
 ];

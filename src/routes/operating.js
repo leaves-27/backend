@@ -1,5 +1,5 @@
-import channelStatistics from "../view/operating/channelStatistics";
-import channelStatisticsSource from "../view/operating/channelStatisticsSource";
+import ChannelStatistics from "../view/operating/channelStatistics";
+import ChannelStatisticsSource from "../view/operating/channelStatisticsSource";
 
 export default [
 	{
@@ -8,10 +8,10 @@ export default [
 	},
 	{
 		path: '/operating/channelStatistics',
-		component: channelStatistics
+		component: ChannelStatistics
 	},
 	{
 		path: '/operating/channelStatisticsSource',
-		component: channelStatisticsSource
+		component: ChannelStatisticsSource
 	}
 ];

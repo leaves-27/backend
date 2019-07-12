@@ -106,7 +106,97 @@
 <script>
     import axios from 'axios';
     import qs from 'qs';
-
+    const headers = [
+    {
+        title: '用户Id',
+        key: 'id',
+    },
+    {
+        title: '手机号码',
+        key: 'phone',
+    },
+    {
+        title: '姓名',
+        key: 'name'
+    },
+    {
+        title: '身份证号',
+        key: 'idCard'
+    },
+    {
+        title: '性别',
+        key: 'sex'
+    },
+    {
+        title: '注册时间',
+        key: 'registerTime'
+    },
+    {
+        title: '最后一次访问时间',
+        key: 'lastTime'
+    },
+    {
+        title: '授信状态',
+        key: 'creditStatus'
+    },
+    {
+        title: '授信总额',
+        key: 'creditAmount'
+    },
+    {
+        title: '手机运营商验证',
+        key: 'phoneOperatorVeritical'
+    },
+    {
+        title: '最后授信时间',
+        key: 'lastCreditTime'
+    },
+    {
+        title: '来源',
+        key: 'source'
+    },
+    {
+        title: '身份证正面照片',
+        key: 'icardPositivePhone'
+    },
+    {
+        title: '身份证背面照片',
+        key: 'icardReversePhone'
+    },
+    {
+        title: '操作',
+        key: 'action',
+        width: 200,
+        render: (h, params) => {
+            return h('div', [
+                h('Button', {
+                    props: {
+                        type: 'primary',
+                        size: 'small'
+                    },
+                    style: {
+                        marginRight: '10px'
+                    },
+                    on: {
+                        click: () => {
+                            // this.show(params.index)
+                        }
+                    }
+                }, '添加黑名单'),
+                h('Button', {
+                    props: {
+                        type: 'error',
+                        size: 'small'
+                    },
+                    on: {
+                        click: () => {
+                            // this.remove(params.index)
+                        }
+                    }
+                }, '资料')
+            ]);
+        }
+    }];
     export default {
       data (){
             return {
@@ -121,69 +211,7 @@
                    label: '否',
                    value: '2'
                 }],
-                headers: [
-                {
-                    title: '用户Id',
-                    key: 'id',
-                },
-                {
-                    title: '手机号码',
-                    key: 'phone',
-                },
-                {
-                    title: '姓名',
-                    key: 'name'
-                },
-                {
-                    title: '身份证号',
-                    key: 'idCard'
-                },
-                {
-                    title: '性别',
-                    key: 'sex'
-                },
-                {
-                    title: '注册时间',
-                    key: 'registerTime'
-                },
-                {
-                    title: '最后一次访问时间',
-                    key: 'lastTime'
-                },
-                {
-                    title: '授信状态',
-                    key: 'creditStatus'
-                },
-                {
-                    title: '授信总额',
-                    key: 'creditAmount'
-                },
-                {
-                    title: '手机运营商验证',
-                    key: 'phoneOperatorVeritical'
-                },
-                {
-                    title: '最后授信时间',
-                    key: 'lastCreditTime'
-                },
-                {
-                    title: '来源',
-                    key: 'source'
-                },
-                {
-                    title: '身份证正面照片',
-                    key: 'icardPositivePhone'
-                },
-                {
-                    title: '身份证背面照片',
-                    key: 'icardReversePhone'
-                },
-                {
-                    title: '操作',
-                    key: 'action',
-                    width: 200,
-                    render: this.render
-                }],
+                headers,
                 bodys: [],
                 id: '',
                 name: '',
@@ -199,35 +227,6 @@
                 }
                 return '';
             },
-            render(h, params){
-                return h('div', [
-                    h('Button', {
-                        props: {
-                            type: 'primary',
-                            size: 'small'
-                        },
-                        style: {
-                            marginRight: '10px'
-                        },
-                        on: {
-                            click: () => {
-                                // this.show(params.index)
-                            }
-                        }
-                    }, '添加黑名单'),
-                    h('Button', {
-                        props: {
-                            type: 'error',
-                            size: 'small'
-                        },
-                        on: {
-                            click: () => {
-                                // this.remove(params.index)
-                            }
-                        }
-                    }, '资料')
-                ]);
-            }
         },
         mounted(){
 
