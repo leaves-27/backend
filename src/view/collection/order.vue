@@ -130,81 +130,89 @@
 	import qs from 'qs';
 	const headers = [
 		{
-			title: '日期',
-			key: 'date',
+			title: '是否复借',
+			key: 'isReborrow',
 		},
 		{
-			title: '新增入催笔数',
-			key: 'newAddCollectCount',
+			title: '催收员',
+			key: 'collector',
 		},
 		{
-			title: '新增入催金额',
-			key: 'newAddCollectAmount'
+			title: '允许展期操作员',
+			key: 'deferCollector'
 		},
 		{
-			title: '累计逾期未还笔数',
-			key: 'delayUnrepaymentCount'
+			title: '催收状态',
+			key: 'collectionStatus'
 		},
 		{
-			title: '累计逾期危害金额',
-			key: 'delayUnrepaymentAmount'
+			title: '约定还款时间',
+			key: 'repaymentTime'
 		},
 		{
-			title: '催收还款笔数',
-			key: 'collectionRepaymentCount'
+			title: '最近催收',
+			key: 'lastCollect'
 		},
 		{
-			title: '催收还款金额',
-			key: 'collectionRepaymentAmount'
+			title: '账单号',
+			key: 'billId'
 		},
 		{
-			title: '1-3天回款笔数',
-			key: '1To3RepaymentCount'
+			title: '备注',
+			key: 'desc'
 		},
 		{
-			title: '1-3天回款金额',
-			key: '1To3RepaymentAmount'
+			title: '账单状态',
+			key: 'billStatus'
 		},
 		{
-			title: '4-7天回款笔数',
-			key: '4To7RepaymentCount'
+			title: '用户ID',
+			key: 'userId'
 		},
 		{
-			title: '4-7天回款金额',
-			key: '4To7RepaymentAmount'
+			title: '姓名',
+			key: 'name'
 		},
 		{
-			title: '8-15天回款笔数',
-			key: '8To15RepaymentCount'
+			title: '手机号码',
+			key: 'phone'
 		},
 		{
-			title: '8-15天回款金额',
-			key: '8To15RepaymentAmount'
+			title: '身份证号',
+			key: 'idCard'
 		},
 		{
-			title: '16-30天回款笔数',
-			key: '16To30RepaymentCount'
+			title: '借款金额',
+			key: 'loanAmount'
 		},
 		{
-			title: '16-30天回款金额',
-			key: '16To30RepaymentAmount'
+			title: '借款期限',
+			key: 'loanPeroid'
 		},
 		{
-			title: '31-60天回款笔数',
-			key: '31To60RepaymentCount'
+			title: '逾期天数',
+			key: 'delayDays'
 		},
 		{
-			title: '31-60天回款金额',
-			key: '31To60RepaymentAmount'
+			title: '应还(含逾期)',
+			key: 'shouldRepayment'
 		},
 		{
-			title: '60天以上回款笔数',
-			key: '60ToAboveRepaymentCount'
+			title: '逾期利息',
+			key: 'delayInterset'
 		},
 		{
-			title: '60天以上回款金额',
-			key: '60ToAboveRepaymentAmount'
-		}];
+			title: '逾期管理费',
+			key: 'delayFee'
+		},
+        {
+            title: '还款日',
+            key: 'repaymentDate'
+        },
+        {
+            title: '更新时间',
+            key: 'updateTime'
+        }];
 	export default {
 		data (){
 			return {

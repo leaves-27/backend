@@ -118,12 +118,24 @@
                 id: '7',
                 name: '账户管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '7-1',
+                    name: '修改密码',
+                    path: '/account/modifiyPassword'
+                },{
+                    id: '7-2',
+                    name: '用户管理',
+                    path: '/setting/userMange'
+                }],
             },{
                 id: '8',
                 name: '设置管理',
                 icon: 'ios-keypad',
-                items: [],
+                items: [{
+                    id: '8-1',
+                    name: '全局配置',
+                    path: '/setting/globalConfig'
+                }],
             }];
         }
     }

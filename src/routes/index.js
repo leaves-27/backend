@@ -4,6 +4,8 @@ import finance from './finance';
 import statistics from './statistics';
 import operating from './operating';
 import collection from './collection';
+import setting from './setting';
+import account from './account';
 
 export default [
     ...user,
@@ -11,5 +13,7 @@ export default [
     ...finance,
     ...statistics,
     ...operating,
-    ...collection
+    ...collection,
+    ...setting,
+    ...account
 ]
