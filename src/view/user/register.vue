@@ -212,13 +212,68 @@
                    value: '2'
                 }],
                 headers,
-                bodys: [],
                 id: '',
                 name: '',
                 phone: '',
                 idCard: '',
                 trust: '0',
+                originData: {
+                    items: []
+                }
             };
+        },
+        computed: {
+            bodys(){
+                // return [{
+                //     id: '11',
+                //     phone: '1539428703',
+                //     name: '陶少龙',
+                //     idCard: '',
+                //     sex: '男',
+                //     registerTime: '',
+                //     lastTime: '',
+                //     creditStatus: '',
+                //     creditAmount: '',
+                //     phoneOperatorVeritical: '',
+                //     lastCreditTime: '',
+                //     source: '',
+                //     icardPositivePhone: '',
+                //     icardReversePhone: '12312',
+                // }, {
+                //     id: '11',
+                //     phone: '1539428703',
+                //     name: '陶少龙',
+                //     idCard: '',
+                //     sex: '男',
+                //     registerTime: '',
+                //     lastTime: '',
+                //     creditStatus: '',
+                //     creditAmount: '',
+                //     phoneOperatorVeritical: '',
+                //     lastCreditTime: '',
+                //     source: '',
+                //     icardPositivePhone: '',
+                //     icardReversePhone: '12312',
+                // }];
+                return this.originData.items.map((item)=>{
+                    return {
+                         'id': item.id,
+                         'phone': item.mobile,
+                         'name': item.name,
+                         'idCard': item.idNumber,
+                         'sex': item.sexDes,
+                         'registerTime': item.registTime,
+                         'lastTime': item.lastTime,
+                         'creditStatus': item.creditStatus,
+                         'creditAmount': item.creditAmount,
+                         'phoneOperatorVeritical': item.id,
+                         'lastCreditTime': item.lastCreditTime,
+                         'source': item.source,
+                         'icardPositivePhone': item.idCardPhotoPath,
+                         'icardReversePhone': item.idCardBackPath,
+                    }
+                });
+            },
         },
         methods: {
             rowClassName (row, index) {
@@ -229,100 +284,36 @@
             },
         },
         mounted(){
-
-            // axios({
-            //     url: 'http://admin.51laiyun.com/debtorUser/list',
-            //     method: 'post',
-            //     data: {
-            //         limit: 25,
-            //         start: 0,
-            //         sort: '',
-            //         dir: 'ASC',
-            //         searchForm: {
-            //             id: "",
-            //             name: "",
-            //             mobile: "",
-            //             idNumber: "",
-            //             hasCredit: -1,
-            //             hasCreditSuccess: -1,
-            //             idVerified: -1,
-            //             source:"",
-            //             startDate:"",
-            //             endDate: ""
-            //         }
-            //     }
-            // })
-            // .then(function (response) {
-            //     // console.log(response);
-            // })
-            // .catch(function (error) {
-            //     // console.log(error);
-            // });
-
-            // const data = qs.stringify({
-            //     limit: 25,
-            //     start: 0,
-            //     sort: '',
-            //     dir: 'ASC',
-            //     searchForm: {
-            //         'id': "",
-            //         'name': "",
-            //         'mobile': "",
-            //         'idNumber': "",
-            //         'hasCredit': -1,
-            //         'hasCreditSuccess': -1,
-            //         'idVerified': -1,
-            //         'source':"",
-            //         'startDate':"",
-            //         'endDate': ""
-            //     }
-            // });
-            // axios({
-            //     url: 'http://10.1.135.148:3000/list',
-            //     method: 'post',
-            //     data,
-            //     headers: {
-            //         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            //     }
-            // })
-            // .then(function (response) {
-            //     // console.log(response);
-            // })
-            // .catch(function (error) {
-            //     // console.log(error);
-            // });
-             this.bodys =  [
-                {
-                  id: '11',
-                  phone: '1539428703',
-                  name: '陶少龙',
-                  idCard: '',
-                  sex: '男',
-                  registerTime: '',
-                  lastTime: '',
-                  creditStatus: '',
-                  creditAmount: '',
-                  phoneOperatorVeritical: '',
-                  lastCreditTime: '',
-                  source: '',
-                  icardPositivePhone: '',
-                  icardReversePhone: '12312',
-                }, {
-                 id: '11',
-                 phone: '1539428703',
-                 name: '陶少龙',
-                 idCard: '',
-                 sex: '男',
-                 registerTime: '',
-                 lastTime: '',
-                 creditStatus: '',
-                 creditAmount: '',
-                 phoneOperatorVeritical: '',
-                 lastCreditTime: '',
-                 source: '',
-                 icardPositivePhone: '',
-                 icardReversePhone: '12312',
-                }];
+            axios({
+                url: 'http://admin.51laiyun.com/debtorUser/list',
+                method: 'post',
+                data: {
+                    limit: 25,
+                    start: 0,
+                    sort: '',
+                    dir: 'ASC',
+                    searchForm: {
+                        id: "",
+                        name: "",
+                        mobile: "",
+                        idNumber: "",
+                        hasCredit: -1,
+                        hasCreditSuccess: -1,
+                        idVerified: -1,
+                        source:"",
+                        startDate:"",
+                        endDate: ""
+                    }
+                }
+            })
+            .then(function (response) {
+              const { data } = response;
+              const { debtorUsers } = data;
+              this.originData.items = debtorUsers;
+            })
+            .catch(function (error) {
+                // console.log(error);
+            });
         }
     }
 </script>
